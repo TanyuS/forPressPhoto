@@ -1,0 +1,36 @@
+{
+  "name": "react_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-cli": "^1.4.0",
+    "gulp-less": "^3.3.2",
+    "gulp-sourcemaps": "^2.6.1",
+    "less-plugin-autoprefix": "^1.5.1",
+    "material-design-lite": "^1.3.0",
+    "path": "^0.12.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TanyuS/forPressPhoto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TanyuS/forPressPhoto/issues"
+  },
+  "homepage": "https://github.com/TanyuS/forPressPhoto#readme"
+}
