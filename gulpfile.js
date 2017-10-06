@@ -1,4 +1,5 @@
 var gulp = require("gulp");
+var react = require('gulp-react');
 var babel = require("gulp-babel");
 var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
@@ -30,8 +31,7 @@ var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
  
 gulp.task('build', function() {
     const src = [
-        './app/components/*.js',
-        './app/components/*.jsx'
+        './app/components/App.jsx'
         ];
 
     return gulp.src(src)
@@ -42,6 +42,7 @@ gulp.task('build', function() {
                         'react'
                         ]
                     }))
+				.pipe(react())
                 .pipe(sourcemaps.write('.'))
                 .pipe(gulp.dest('./public/script'));
 });

@@ -1,14 +1,15 @@
-import react from 'react';
+import React from 'react';
+import {render} from 'react-dom';
+
+import List from './List';
+
+const App = () => (
+	<div>
+		<List/>
+	</div>
+);
 
 
-const App = React.createClass({
-    render: function(){
-        return (
-            <h1>Hello, world!</h1>
-        );
-    }
-});
- React.render(
- 	<App />,
-	document.getElementById('app')
+render(
+	<App />, document.getElementById('app')
 );
