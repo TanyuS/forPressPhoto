@@ -1,21 +1,19 @@
-
-import gulp from 'gulp';
-import gutil from 'gulp-util';
-import browserify from 'browserify';
-import babelify from 'babelify';
-import source from 'vinyl-source-stream';
-import sourcemaps from 'gulp-sourcemaps';
-import less from 'gulp-less';
-import path from 'path';
-import LessAutoprefix from 'less-plugin-autoprefix';
-import autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
+var gulp = require("gulp");
+var babel = require("gulp-babel");
+var gutil = require('gulp-util');
+var sourcemaps = require('gulp-sourcemaps');
+var less = require('gulp-less');
+var path = require('path');
+var LessAutoprefix = require('less-plugin-autoprefix');
+var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
  
-gulp.task('build', () => {
+/*gulp.task('build', () => {
     return browserify({
             entries: './app/components/App.jsx',
             extensions: ['.jsx'],
             debug: true
         })
+		.pipe(sourcemaps.init())
         .transform('babelify', {
             presets: ['es2015', 'react'],
             plugins: ['transform-class-properties']
@@ -28,16 +26,9 @@ gulp.task('build', () => {
         })
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('dist'));
-});
+});*/
  
-gulp.task('watch', ['build'], () => {
-    gulp.watch('./app/components/**/*.jsx', ['build']);
-});
- 
-gulp.task('default', ['watch']);
-
-/*
-gulp.task('build-script', function() {
+gulp.task('build', function() {
     const src = [
         './app/components/*.js',
         './app/components/*.jsx'
@@ -54,7 +45,6 @@ gulp.task('build-script', function() {
                 .pipe(sourcemaps.write('.'))
                 .pipe(gulp.dest('./public/script'));
 });
-*/
  
 gulp.task('less', function () {
 	const src = [
@@ -70,3 +60,12 @@ gulp.task('less', function () {
 		.pipe(sourcemaps.write('./maps'))
 		.pipe(gulp.dest('./public/css'));
 });
+
+
+gulp.task('watch', ['build'], () => {
+    gulp.watch('./app/components/**/', ['build','less']);
+});
+ 
+gulp.task('default', ['watch']);
+
+
